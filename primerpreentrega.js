@@ -1,24 +1,26 @@
 class ProductManager {
     constructor (){
         this.products = []
-
+        this.id = Math.random()
     }
    
     getProducts(){
         console.log (this.products)
     }
 
-    addProducts(title, description, id, stock, price, thumbnail){
-        if(!title||!description||!id||!stock|| !price ||!thumbnail){
-    console.log("Todos los campos son obligatorios ")            
+    addProducts(title, description, code, stock, price, thumbnail){
+        if(!title|| !description || !code || !stock || !price || !thumbnail){
+            this.id
+            console.log("Todos los campos son obligatorios ")    
+
         }
-        if(!this.products.some((p)=> p.id === id)){
-            let newProduct = (title,description ,price, id, stock, thumbnail)
+        if(!this.products.some((p)=> p.id === this.id)){
+            let newProduct = (title,description ,price, code, stock, thumbnail)
 
             this.products.push(newProduct)
             console.log(`El producto ${title} fue agregado correctamente`)
         }else {
-            console.log(`Ya existe un libro con el id ${id}`)
+            console.log(`Ya existe un libro con el Id ${this.id}`)
         }
     }
   getProductById(id){
@@ -38,5 +40,7 @@ product.getProducts()
 
 //Busqueda por codigod e libro
 console.log("-------------")
-product.getProductById(23.278361)
-product.getProductById(23.278362)
+product.getProductById(1)
+product.getProductById(6)
+
+
